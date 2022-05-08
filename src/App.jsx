@@ -1,4 +1,4 @@
-import Hiragana from "./components/hiragana";
+import Hiragana from "./components/hiragana/hiragana";
 
 function App() {
   return (
