@@ -1,10 +1,9 @@
-import Hiragana from "./components/hiragana/hiragana";
-import Katakana from "./components/katakana/katakana";
+import SelectSubject from "./components/selectSubject/selectSubject";
 
 function App() {
   return (
     <div>
-      <Katakana />
+      <SelectSubject />
     </div>
   );
 }
