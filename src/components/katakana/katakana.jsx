@@ -5,8 +5,8 @@ function Katakana() {
   const [input, setInput] = useState("");
   const [current, setCurrent] = useState(0);
 
-  const [streak, setStreak] = useState(0);
-  const [maxStreak, setMaxStreak] = useState(0);
+  const [katakanaStreak, setKatakanaStreak] = useState(0);
+  const [maxKatakanaStreak, setMaxKatakanaStreak] = useState(0);
 
   const [error, setError] = useState(false);
 
@@ -23,21 +23,21 @@ function Katakana() {
     e.preventDefault();
 
     if (input.toLowerCase() === katakana[current].romaji) {
-      setStreak(streak + 1);
-      setMaxStreak(streak + 1 > maxStreak ? streak + 1 : maxStreak);
+      setKatakanaStreak(katakanaStreak + 1);
+      setMaxKatakanaStreak(katakanaStreak + 1 > maxKatakanaStreak ? katakanaStreak + 1 : maxKatakanaStreak);
       setError(false);
 
-      localStorage.setItem("streak", streak + 1);
+      localStorage.setItem("katakana-streak", katakanaStreak + 1);
       localStorage.setItem(
-        "maxStreak",
-        streak + 1 > maxStreak ? streak + 1 : maxStreak
+        "maxKatakanaStreak",
+        katakanaStreak + 1 > maxKatakanaStreak ? katakanaStreak + 1 : maxKatakanaStreak
       );
     } else {
       const h = katakana[current].katakana;
       const r = katakana[current].romaji;
       setError(`Wrong! The correct answer for ${h} is ${r}`);
       setStreak(0);
-      localStorage.setItem("streak", 0);
+      localStorage.setItem("katakanaStreak", 0);
     }
 
     setInput("");
@@ -46,8 +46,8 @@ function Katakana() {
 
   useEffect(() => {
     setRandomkatakana();
-    setStreak(parseInt(localStorage.getItem("streak")) || 0);
-    setMaxStreak(parseInt(localStorage.getItem("maxStreak")) || 0);
+    setKatakanaStreak(parseInt(localStorage.getItem("katakanaStreak")) || 0);
+    setMaxKatakanaStreak(parseInt(localStorage.getItem("maxKatakanaStreak")) || 0);
   }, []);
 
   return (
@@ -56,7 +56,7 @@ function Katakana() {
         <h1 className="text-2xl font-bold uppercase">katakana Quiz</h1>
         <div>
           <p>
-            {streak} / {maxStreak}
+            {katakanaStreak} / {maxKatakanaStreak}
           </p>
         </div>
       </header>
