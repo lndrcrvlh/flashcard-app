@@ -33,10 +33,10 @@ function Katakana() {
         katakanaStreak + 1 > maxKatakanaStreak ? katakanaStreak + 1 : maxKatakanaStreak
       );
     } else {
-      const h = katakana[current].katakana;
+      const k = katakana[current].katakana;
       const r = katakana[current].romaji;
-      setError(`Wrong! The correct answer for ${h} is ${r}`);
-      setStreak(0);
+      setError(`Wrong! The correct answer for ${k} is ${r}`);
+      setKatakanaStreak(0);
       localStorage.setItem("katakanaStreak", 0);
     }
 

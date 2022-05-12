@@ -16,12 +16,39 @@ function SelectSubject(props) {
     setHiragana(true);
   };
 
+  const handleSwitch = (e) => {
+    e.preventDefault();
+    hiragana
+      ? (setHiragana(false), setKatakana(true))
+      : (setHiragana(true), setKatakana(false));
+  };
+
   if (katakana) {
-    return <Katakana />;
+    return (
+      <div>
+        <Katakana />
+        <button
+          className="katakana border-2 p-2 rounded-lg m-4"
+          onClick={handleSwitch}
+        >
+          Switch to Hiragana
+        </button>
+      </div>
+    );
   }
 
   if (hiragana) {
-    return <Hiragana />;
+    return (
+      <div>
+        <Hiragana />
+        <button
+          className="katakana border-2 p-2 rounded-lg m-4"
+          onClick={handleSwitch}
+        >
+          Switch to Katakana
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -37,7 +64,7 @@ function SelectSubject(props) {
         className="hiragana border-2 p-2 rounded-lg m-4"
         onClick={handleHiragana}
       >
-        Hiragana  
+        Hiragana
       </button>
     </div>
   );
