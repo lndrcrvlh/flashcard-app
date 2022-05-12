@@ -51,7 +51,7 @@ function Hiragana() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-800 text-white text-center">
+    <div className="text-slate text-center">
       <header className="p-6 mb-8">
         <h1 className="text-2xl font-bold uppercase">Hiragana Quiz</h1>
         <div>
@@ -71,7 +71,7 @@ function Hiragana() {
             type="text"
             onChange={handleChange}
             value={input}
-            className="block w-24 bg-transparent border-b-2 border-b-white mx-auto outline-none text-center text-6xl pb-2"
+            className="block w-24 border-b-2 border-b-slate-800 mx-auto outline-none text-center text-6xl pb-2"
           />
         </form>
       </div>

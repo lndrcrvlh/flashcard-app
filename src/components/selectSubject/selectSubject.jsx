@@ -25,10 +25,10 @@ function SelectSubject(props) {
 
   if (katakana) {
     return (
-      <div>
+      <div className="text-slate text-center">
         <Katakana />
         <button
-          className="katakana border-2 p-2 rounded-lg m-4"
+          className="border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
           onClick={handleSwitch}
         >
           Switch to Hiragana
@@ -39,10 +39,10 @@ function SelectSubject(props) {
 
   if (hiragana) {
     return (
-      <div>
+      <div className="text-slate text-center">
         <Hiragana />
         <button
-          className="katakana border-2 p-2 rounded-lg m-4"
+          className="border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
           onClick={handleSwitch}
         >
           Switch to Katakana
@@ -52,16 +52,16 @@ function SelectSubject(props) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-800 text-white text-center p-10">
+    <div className="text-slate text-center p-10">
       <h1 className="text-2xl font-bold">What would you like to study?</h1>
       <button
-        className="katakana border-2 p-2 rounded-lg m-4"
+        className="katakana border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
         onClick={handleKatakana}
       >
         Katakana
       </button>
       <button
-        className="hiragana border-2 p-2 rounded-lg m-4"
+        className="hiragana border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
         onClick={handleHiragana}
       >
         Hiragana
