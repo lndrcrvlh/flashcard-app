@@ -24,22 +24,33 @@ function randomKanji() {
           <p>Stroke count: {kanjiData.stroke_count}</p>
           <p>grade: {kanjiData.grade}</p>
           <p>JLPT level: {kanjiData.jlpt}</p>
-          <ul>
-            Kunyomi:
-            {kanjiData.kun_readings &&
-              kanjiData.kun_readings.map((reading) => <li>{reading}</li>)}
-          </ul>
-          <ul>
-            Onyomi:
-            {kanjiData.on_readings &&
-              kanjiData.on_readings.map((reading) => <li>{reading}</li>)}
-          </ul>
-          <ul>
-            Name Readings:
-            {kanjiData.name_readings &&
-              kanjiData.name_readings.map((reading) => <li>{reading}</li>)}
-          </ul>
-          <ul>
+
+          {kanjiData.kun_readings && kanjiData.kun_readings > 0 && (
+            <ul className="mt-2">
+              Kunyomi:
+              {kanjiData.kun_readings.map((reading) => (
+                <li>{reading}</li>
+              ))}
+            </ul>
+          )}
+
+          {kanjiData.on_readings && kanjiData.on_readings.length > 0 && (
+            <ul className="mt-2">
+              Onyomi:
+              {kanjiData.on_readings.map((reading) => (
+                <li>{reading}</li>
+              ))}
+            </ul>
+          )}
+          {kanjiData.name_readings && kanjiData.name_readings.length > 0 && (
+            <ul className="mt-2">
+              Name Readings:
+              {kanjiData.name_readings.map((reading) => (
+                <li>{reading}</li>
+              ))}
+            </ul>
+          )}
+          <ul className="mt-2">
             Meanings:
             {kanjiData.meanings &&
               kanjiData.meanings.map((meaning) => <li>{meaning}</li>)}
