@@ -12,9 +12,11 @@ function randomKanji() {
 
   useEffect(() => setRandomKanji(), []);
 
-  const kanjiData = useFetch(`https://kanjiapi.dev/v1/kanji/${kanji[randomKanji]}`);
+  const [kanjiData] = useFetch(
+    `https://kanjiapi.dev/v1/kanji/${kanji[randomKanji]}`
+  );
 
-  return <div>{kanji[randomKanji]}</div>;
+  return <div>{kanjiData && <div>{JSON.stringify(kanjiData)}</div>}</div>;
 }
 
 export default randomKanji;
