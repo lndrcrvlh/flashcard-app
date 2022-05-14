@@ -57,6 +57,16 @@ function randomKanji() {
           </ul>
         </div>
       )}
+
+      <div className="text-center">
+        
+        <button
+          onClick={setRandomKanji}
+          className="border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
+        >
+          Show another Kanji
+        </button>
+      </div>
     </div>
   );
 }
