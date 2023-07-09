@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
 import KanjiCard from "./KanjiCard";
 import kanji from "./kanji.json";
-import { useFetch } from "../../hooks/useFetch";
 
 function KanjiContainer() {
-  // const [randomKanji, setRandomKanji] = useState("");
   const [kanjiData, setKanjiData] = useState([]);
-
-  // const chooseKanji = () => {
-  //   setRandomKanji(Math.floor(Math.random() * kanji.length));
-  // };
 
   const getRandomKanji = () => {
     const randomKanji = Math.floor(Math.random() * kanji.length);
@@ -25,22 +19,18 @@ function KanjiContainer() {
   };
 
   return (
-    <div className="justify-self-center self-center">
-      {kanjiData.length > 0 &&
-        kanjiData.map((kanji) => {
-          return (
-            <div className="justify-self-center">
-              <KanjiCard data={kanji} key={kanji.key} />
-            </div>
-          );
-        })}
-      <div className="justify-self-center">
-        <button
-          onClick={getRandomKanji}
-          className="border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
-        >
-          Show Kanji
-        </button>
+    <div className="flex justify-self-center self-center flex-row">
+      <button
+        onClick={getRandomKanji}
+        className="h-[400px] w-[300px] min-h-[400px] min-w-[300px] border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4 hover:shadow-xl transition-shadow duration-300 ease-in-out"
+      >
+        Add Kanji Card
+      </button>
+      <div className="flex justify-self-center self-center flex-row-reverse overflow-x-auto ">
+        {kanjiData.length > 0 &&
+          kanjiData.map((kanji) => {
+            return <KanjiCard data={kanji} key={kanji.key} />;
+          })}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ function KanjiCard(data) {
   const kanjiData = data.data;
 
   return (
-    <div className="border-2 border-slate-500 rounded-md w-1/4 p-8 justify-self-center">
+    <div className="h-[400px] w-[300px] h-[400px] w-[300px] min-h-[400px] flex-shrink-0 overflow-y-auto m-4 border-2 border-slate-500 rounded-md w-1/4 p-8 justify-self-center">
       {kanjiData && (
         <div className="text-slate text-center">
           <p className="mb-4 text-4xl">{kanjiData.kanji}</p>
@@ -16,7 +16,7 @@ function KanjiCard(data) {
             <ul className="mt-2">
               <strong>Kunyomi:</strong>
               {kanjiData.kun_readings.map((reading) => (
-                <li>{reading}</li>
+                <li key={reading}>{reading}</li>
               ))}
             </ul>
           )}
@@ -25,7 +25,7 @@ function KanjiCard(data) {
             <ul className="mt-2">
               <strong>Onyomi:</strong>
               {kanjiData.on_readings.map((reading) => (
-                <li>{reading}</li>
+                <li key={reading}>{reading}</li>
               ))}
             </ul>
           )}
@@ -33,7 +33,7 @@ function KanjiCard(data) {
             <ul className="mt-2">
               <strong>Name Readings:</strong>
               {kanjiData.name_readings.map((reading) => (
-                <li>{reading}</li>
+                <li key={reading}>{reading}</li>
               ))}
             </ul>
           )}
