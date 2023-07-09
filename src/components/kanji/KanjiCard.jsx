@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from "react";
-import kanji from "./kanji.json";
-import { useFetch } from "../../hooks/useFetch";
+import React from "react";
 
-function randomKanji() {
-  const [randomKanji, setKanji] = useState("");
-
-  const setRandomKanji = () => {
-    const randomIndex = Math.floor(Math.random() * kanji.length);
-    setKanji(randomIndex);
-  };
-
-  useEffect(() => setRandomKanji(), []);
-
-  const [kanjiData] = useFetch(
-    `https://kanjiapi.dev/v1/kanji/${kanji[randomKanji]}`
-  );
+function KanjiCard(data) {
+  const kanjiData = data.data;
 
   return (
-    <div>
+    <div className="border-2 border-slate-500 rounded-md w-1/4 p-8">
+      {console.log(kanjiData,{...kanjiData}) && <></>}
       {kanjiData && (
         <div className="text-slate text-center">
           <p className="mb-4 text-4xl">{kanjiData.kanji}</p>
-          <p>Stroke count: {kanjiData.stroke_count}</p>
-          <p>grade: {kanjiData.grade}</p>
-          <p>JLPT level: {kanjiData.jlpt}</p>
+          <p><strong>Stroke count:</strong> {kanjiData.stroke_count}</p>
+          <p><strong>grade:</strong> {kanjiData.grade}</p>
+          <p><strong>JLPT level:</strong> {kanjiData.jlpt}</p>
 
           {kanjiData.kun_readings && kanjiData.kun_readings > 0 && (
             <ul className="mt-2">
-              Kunyomi:
+              <strong>Kunyomi:</strong>
               {kanjiData.kun_readings.map((reading) => (
                 <li>{reading}</li>
               ))}
@@ -36,7 +24,7 @@ function randomKanji() {
 
           {kanjiData.on_readings && kanjiData.on_readings.length > 0 && (
             <ul className="mt-2">
-              Onyomi:
+              <strong>Onyomi:</strong>
               {kanjiData.on_readings.map((reading) => (
                 <li>{reading}</li>
               ))}
@@ -44,14 +32,14 @@ function randomKanji() {
           )}
           {kanjiData.name_readings && kanjiData.name_readings.length > 0 && (
             <ul className="mt-2">
-              Name Readings:
+              <strong>Name Readings:</strong>
               {kanjiData.name_readings.map((reading) => (
                 <li>{reading}</li>
               ))}
             </ul>
           )}
           <ul className="mt-2">
-            Meanings:
+          <strong>Meanings:</strong>
             {kanjiData.meanings &&
               kanjiData.meanings.map((meaning) => <li>{meaning}</li>)}
           </ul>
@@ -71,4 +59,4 @@ function randomKanji() {
   );
 }
 
-export default randomKanji;
+export default KanjiCard;
