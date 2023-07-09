@@ -4,8 +4,7 @@ function KanjiCard(data) {
   const kanjiData = data.data;
 
   return (
-    <div className="border-2 border-slate-500 rounded-md w-1/4 p-8">
-      {console.log(kanjiData,{...kanjiData}) && <></>}
+    <div className="border-2 border-slate-500 rounded-md w-1/4 p-8 justify-self-center">
       {kanjiData && (
         <div className="text-slate text-center">
           <p className="mb-4 text-4xl">{kanjiData.kanji}</p>
@@ -41,7 +40,7 @@ function KanjiCard(data) {
           <ul className="mt-2">
           <strong>Meanings:</strong>
             {kanjiData.meanings &&
-              kanjiData.meanings.map((meaning) => <li>{meaning}</li>)}
+              kanjiData.meanings.map((meaning) => <li key={meaning}>{meaning}</li>)}
           </ul>
         </div>
       )}
