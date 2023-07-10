@@ -8,9 +8,15 @@ function KanjiCard(data) {
       {kanjiData && (
         <div className="text-slate text-center">
           <p className="mb-4 text-4xl">{kanjiData.kanji}</p>
-          <p><strong>Stroke count:</strong> {kanjiData.stroke_count}</p>
-          <p><strong>grade:</strong> {kanjiData.grade}</p>
-          <p><strong>JLPT level:</strong> {kanjiData.jlpt}</p>
+          <p>
+            <strong>Stroke count:</strong> {kanjiData.stroke_count}
+          </p>
+          <p>
+            <strong>grade:</strong> {kanjiData.grade}
+          </p>
+          <p>
+            <strong>JLPT level:</strong> {kanjiData.jlpt}
+          </p>
 
           {kanjiData.kun_readings && kanjiData.kun_readings > 0 && (
             <ul className="mt-2">
@@ -38,22 +44,14 @@ function KanjiCard(data) {
             </ul>
           )}
           <ul className="mt-2">
-          <strong>Meanings:</strong>
+            <strong>Meanings:</strong>
             {kanjiData.meanings &&
-              kanjiData.meanings.map((meaning) => <li key={meaning}>{meaning}</li>)}
+              kanjiData.meanings.map((meaning) => (
+                <li key={meaning}>{meaning}</li>
+              ))}
           </ul>
         </div>
       )}
-
-      <div className="text-center">
-        
-        <button
-          onClick={setRandomKanji}
-          className="border-2-slate bg-slate-800 text-white p-2 rounded-lg m-4"
-        >
-          Show another Kanji
-        </button>
-      </div>
     </div>
   );
 }
