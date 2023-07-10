@@ -2,10 +2,10 @@
 
 
 TODO:
-* Create katakana component
-* Add Remaining kana
-* Create a means of selecting which kana the user would like to study
-* figure out how to implement kanji in an interesting way
+* Improve Kanji card scroll behavior
+* Refactor file/component names
+* Mixed hiragana and Katakana
+* Hiragana and Katakana levels
 
 Would be interesting
 * Oauth + user info
